@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- `TransferHashInfo.tmdb_id` is now a required `int` (was optional). The id is
+  always captured at download submission, so the cached metadata always carries
+  it. Breaking for any consumer that relied on the optional field.
+
+## [0.1.0] - 2026-06-26
+
 ### Added
 
 - Initial shared models for the medialab service suite:

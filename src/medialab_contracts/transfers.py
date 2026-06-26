@@ -21,12 +21,8 @@ class TransferInfo(BaseModel):
 
 
 class TransferHashInfo(BaseModel):
-    """Cached metadata for a torrent, keyed by hash, looked up at completion.
-
-    ``tmdb_id`` is optional: it is populated from v1.2 onward and absent for
-    entries cached before that.
-    """
+    """Cached metadata for a torrent, keyed by hash, looked up at completion."""
 
     media_type: MediaType
     host_path: str
-    tmdb_id: int | None = None
+    tmdb_id: int
