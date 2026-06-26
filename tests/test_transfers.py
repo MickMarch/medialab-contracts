@@ -1,5 +1,8 @@
 """Tests for the shared transfer DTOs."""
 
+import pytest
+from pydantic import ValidationError
+
 from medialab_contracts import MediaType, TransferHashInfo, TransferInfo
 
 
@@ -27,7 +30,6 @@ class TestTransferHashInfo:
         assert info.host_path == "/media/Movies"
         assert info.tmdb_id == 27205
 
-    def test_tmdb_id_is_optional(self) -> None:
-        info = TransferHashInfo(media_type="show", host_path="/media/Shows")
-        assert info.tmdb_id is None
-        assert info.media_type is MediaType.SHOW
+    def test_tmdb_id_is_required(self) -> None:
+        with pytest.raises(ValidationError):
+            TransferHashInfo(media_type="show", host_path="/media/Shows")
