@@ -7,12 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2026-07-02
+
 ### Added
 
 - `TorrentSearchScope` model - targets a torrent search at a whole title, a
   season, or a single episode. Validates that movies carry no season/episode,
   an episode requires a season, and season/episode are >= 1. Owned by
   torrent-downloader, consumed by the orchestrator gateway.
+
+## [0.2.0] - 2026-06-26
 
 ### Changed
 
