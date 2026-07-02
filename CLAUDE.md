@@ -28,6 +28,10 @@ standard - never abstract across domains just to dedupe):
 - `TransferInfo`, `TransferHashInfo` - transfer DTOs owned by
   torrent-downloader, consumed by the bot and the orchestrator.
   `TransferHashInfo.tmdb_id` is optional (populated from v1.2 onward).
+- `TorrentSearchScope` - targets a torrent search at a whole title, a season, or
+  a single episode (`media_type`, optional `season`, optional `episode`).
+  Validates the movie/season/episode combinations. Owned by torrent-downloader,
+  consumed by the orchestrator gateway (search-steering only, no job state).
 
 ## What stays out
 
@@ -43,7 +47,8 @@ standard - never abstract across domains just to dedupe):
 
 `__init__.py` re-exports everything consumers should import:
 `MediaType`, `ErrorResponse`, `CommonErrorCode`, `TransferInfo`,
-`TransferHashInfo`. Import from `medialab_contracts`, not submodules.
+`TransferHashInfo`, `TorrentSearchScope`. Import from `medialab_contracts`,
+not submodules.
 
 ## Module layout
 
@@ -52,6 +57,7 @@ src/medialab_contracts/
 ├── __init__.py      - public re-exports
 ├── media.py         - MediaType
 ├── errors.py        - ErrorResponse, CommonErrorCode
+├── search.py        - TorrentSearchScope
 └── transfers.py     - TransferInfo, TransferHashInfo
 ```
 
