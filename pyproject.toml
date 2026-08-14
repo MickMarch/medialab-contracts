@@ -48,5 +48,5 @@ markers = [
 dev = [
     "mypy>=1.13.0",
     "pytest>=9.0.3",
-    "ruff>=0.8.0",
+    "ruff>=0.16.2",
 ]
