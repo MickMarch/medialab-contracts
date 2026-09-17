@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Wire constants shared by every service: `API_PREFIX`, `API_KEY_HEADER`,
+  `HEALTH_PATH`, and `MEDIA_TYPE_SUBDIRS` (the media-root subdirectory per
+  `MediaType`, previously declared separately in torrent-downloader and the
+  orchestrator).
+
 ### Changed
 
 - CI calls the workspace's shared reusable workflow (`MickMarch/medialab`
