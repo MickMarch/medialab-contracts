@@ -18,6 +18,10 @@ from medialab_contracts import (
     TransferInfo,        # per-torrent runtime snapshot
     TransferHashInfo,    # cached media_type + host_path + tmdb_id for a hash
     TorrentSearchScope,  # media_type + optional season / episode for torrent search
+    API_PREFIX,          # "/api/v1", every service mounts its routers here
+    API_KEY_HEADER,      # "X-API-Key"
+    HEALTH_PATH,         # the one unauthenticated endpoint
+    MEDIA_TYPE_SUBDIRS,  # media-root subdirectory per MediaType
 )
 ```
 
