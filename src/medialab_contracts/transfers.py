@@ -18,6 +18,10 @@ class TransferInfo(BaseModel):
     upload_speed: int
     eta_seconds: int
     save_path: str
+    content_path: str = ""
+    """Absolute host path of the torrent's root file or folder, as qBittorrent
+    reports it. Its basename is the on-disk name the orchestrator renames from;
+    the display ``name`` is not reliable for that. Empty when unknown."""
 
 
 class TransferHashInfo(BaseModel):
