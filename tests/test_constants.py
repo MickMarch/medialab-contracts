@@ -5,6 +5,7 @@ from medialab_contracts import (
     API_PREFIX,
     HEALTH_PATH,
     MEDIA_TYPE_SUBDIRS,
+    STAGING_SUBDIR,
     MediaType,
 )
 
@@ -36,3 +37,10 @@ class TestMediaTypeSubdirs:
     def test_expected_names(self) -> None:
         assert MEDIA_TYPE_SUBDIRS[MediaType.MOVIE] == "Movies"
         assert MEDIA_TYPE_SUBDIRS[MediaType.SHOW] == "Shows"
+
+
+class TestStagingSubdir:
+    def test_is_a_plain_name_distinct_from_the_library_subdirs(self) -> None:
+        assert STAGING_SUBDIR == "_incoming"
+        assert "/" not in STAGING_SUBDIR and "\\" not in STAGING_SUBDIR
+        assert STAGING_SUBDIR not in MEDIA_TYPE_SUBDIRS.values()
