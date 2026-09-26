@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `TransferInfo.content_path`: qBittorrent's absolute path of the torrent's
+  root file or folder (default empty). Its basename is the on-disk name a
+  consumer renames from; the display `name` is not.
+
 ## [0.4.0] - 2026-09-19
 
 ### Added
