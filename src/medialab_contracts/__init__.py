@@ -5,6 +5,7 @@ from medialab_contracts.constants import (
     API_PREFIX,
     HEALTH_PATH,
     MEDIA_TYPE_SUBDIRS,
+    STAGING_SUBDIR,
 )
 from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
@@ -16,6 +17,7 @@ __all__ = [
     "API_PREFIX",
     "HEALTH_PATH",
     "MEDIA_TYPE_SUBDIRS",
+    "STAGING_SUBDIR",
     "CommonErrorCode",
     "ErrorResponse",
     "MediaType",

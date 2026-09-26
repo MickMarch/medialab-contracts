@@ -15,6 +15,15 @@ API_KEY_HEADER = "X-API-Key"
 HEALTH_PATH = f"{API_PREFIX}/health"
 """The one unauthenticated endpoint on every service."""
 
+STAGING_SUBDIR = "_incoming"
+"""Subdirectory of the media root where downloads land before placement.
+
+qBittorrent saves under ``<root>/_incoming/<Movies|Shows>``; the orchestrator
+renames into ``<root>/<Movies|Shows>`` on completion. It sits beside the
+Jellyfin library roots, never inside one, so Jellyfin never indexes a raw
+download. Both services must agree on the name, hence a contract.
+"""
+
 MEDIA_TYPE_SUBDIRS: dict[MediaType, str] = {
     MediaType.MOVIE: "Movies",
     MediaType.SHOW: "Shows",

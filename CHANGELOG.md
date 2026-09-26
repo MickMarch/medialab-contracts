@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `STAGING_SUBDIR` (`_incoming`): where downloads land under the media root
+  before the orchestrator places them into the library subdirectories.
+
 ## [0.5.0] - 2026-09-25
 
 ### Added

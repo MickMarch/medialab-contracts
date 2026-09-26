@@ -22,6 +22,7 @@ from medialab_contracts import (
     API_KEY_HEADER,  # "X-API-Key"
     HEALTH_PATH,  # the one unauthenticated endpoint
     MEDIA_TYPE_SUBDIRS,  # media-root subdirectory per MediaType
+    STAGING_SUBDIR,  # "_incoming": downloads land here before placement
 )
 ```
 

@@ -28,7 +28,7 @@ workspace DRY rule: never abstract across domains just to dedupe):
 - `TorrentSearchScope`: whole title / season / episode targeting for a torrent
   search; validates the movie/season/episode combinations.
 - Wire constants (`constants.py`): `API_PREFIX`, `API_KEY_HEADER`,
-  `HEALTH_PATH`, `MEDIA_TYPE_SUBDIRS`. A route prefix or directory name that
+  `HEALTH_PATH`, `MEDIA_TYPE_SUBDIRS`, `STAGING_SUBDIR`. A route prefix or directory name that
   two services must agree on is declared here, not in each.
 
 ## What stays out
