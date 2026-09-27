@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Show browsing models: `Episode`, `Season`, `EpisodeKey`, `EpisodeState`,
+  `SeriesEpisodesResponse`, `LibraryEpisodesResponse`, `ShowBrowseResponse`,
+  and `still_url` with `STILL_SIZE`.
+
 ## [0.10.0] - 2026-09-27
 
 ### Added
