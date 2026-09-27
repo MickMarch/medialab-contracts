@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Runtime settings models: `SettingSpec` (with `coerce`), `SettingView`,
+  `SettingUpdate`, `SettingsResponse`, `SuiteSettingsResponse`, `SettingType`,
+  `SettingSource`.
+
 ## [0.6.0] - 2026-09-26
 
 ### Added
