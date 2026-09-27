@@ -22,6 +22,7 @@ from medialab_contracts.discover import (
 )
 from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
+from medialab_contracts.progress import ETA_UNKNOWN_SECONDS, JobProgress
 from medialab_contracts.search import TorrentSearchScope
 from medialab_contracts.settings import (
     SettingSource,
@@ -41,10 +42,12 @@ __all__ = [
     "CommonErrorCode",
     "DiscoverItem",
     "DiscoverResponse",
+    "ETA_UNKNOWN_SECONDS",
     "ErrorResponse",
     "Genre",
     "GenresResponse",
     "HEALTH_PATH",
+    "JobProgress",
     "LibraryTmdbIdsResponse",
     "MEDIA_TYPE_SUBDIRS",
     "MediaType",
