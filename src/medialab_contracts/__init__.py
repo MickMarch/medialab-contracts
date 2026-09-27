@@ -34,6 +34,17 @@ from medialab_contracts.settings import (
     SettingView,
     SuiteSettingsResponse,
 )
+from medialab_contracts.shows import (
+    STILL_SIZE,
+    Episode,
+    EpisodeKey,
+    EpisodeState,
+    LibraryEpisodesResponse,
+    Season,
+    SeriesEpisodesResponse,
+    ShowBrowseResponse,
+    still_url,
+)
 from medialab_contracts.transfers import TransferHashInfo, TransferInfo
 
 __all__ = [
@@ -43,16 +54,23 @@ __all__ = [
     "DiscoverItem",
     "DiscoverResponse",
     "ETA_UNKNOWN_SECONDS",
+    "Episode",
+    "EpisodeKey",
+    "EpisodeState",
     "ErrorResponse",
     "Genre",
     "GenresResponse",
     "HEALTH_PATH",
     "JobProgress",
+    "LibraryEpisodesResponse",
     "LibraryTmdbIdsResponse",
     "MEDIA_TYPE_SUBDIRS",
     "MediaType",
     "PosterSize",
     "STAGING_SUBDIR",
+    "STILL_SIZE",
+    "Season",
+    "SeriesEpisodesResponse",
     "SettingSource",
     "SettingSpec",
     "SettingType",
@@ -60,6 +78,7 @@ __all__ = [
     "SettingValue",
     "SettingView",
     "SettingsResponse",
+    "ShowBrowseResponse",
     "SuiteSettingsResponse",
     "TMDB_IMAGE_BASE_URL",
     "TorrentSearchScope",
@@ -69,4 +88,5 @@ __all__ = [
     "WishlistItem",
     "WishlistResponse",
     "poster_url",
+    "still_url",
 ]
