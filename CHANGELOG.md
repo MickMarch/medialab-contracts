@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Trailer models: `Video`, `VideoType`, `VideosResponse`, and
+  `youtube_embed_url` with `YOUTUBE_EMBED_BASE_URL`.
+
 ## [0.11.0] - 2026-09-27
 
 ### Added
