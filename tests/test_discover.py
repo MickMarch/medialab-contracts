@@ -11,6 +11,7 @@ from medialab_contracts import (
     LibraryTmdbIdsResponse,
     MediaType,
     PosterSize,
+    WishlistAddRequest,
     WishlistItem,
     WishlistResponse,
     poster_url,
@@ -80,6 +81,14 @@ class TestWishlist:
         assert item.in_library is False
         response = WishlistResponse(items=[item])
         assert WishlistResponse.model_validate_json(response.model_dump_json()) == response
+
+
+class TestWishlistAddRequest:
+    def test_only_title_is_required(self) -> None:
+        body = WishlistAddRequest(title="Dune")
+        assert body.year is None
+        assert body.poster_path is None
+        assert body.overview == ""
 
 
 class TestLibraryTmdbIds:

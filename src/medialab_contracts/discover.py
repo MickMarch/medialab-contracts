@@ -54,6 +54,15 @@ class GenresResponse(BaseModel):
     genres: list[Genre]
 
 
+class WishlistAddRequest(BaseModel):
+    """Body of ``PUT /wishlist/{media_type}/{tmdb_id}``; stored so listing never calls TMDB."""
+
+    title: str
+    year: str | None = None
+    poster_path: str | None = None
+    overview: str = ""
+
+
 class WishlistItem(BaseModel):
     tmdb_id: int
     media_type: MediaType
