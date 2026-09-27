@@ -46,6 +46,13 @@ from medialab_contracts.shows import (
     still_url,
 )
 from medialab_contracts.transfers import TransferHashInfo, TransferInfo
+from medialab_contracts.videos import (
+    YOUTUBE_EMBED_BASE_URL,
+    Video,
+    VideosResponse,
+    VideoType,
+    youtube_embed_url,
+)
 
 __all__ = [
     "API_KEY_HEADER",
@@ -84,9 +91,14 @@ __all__ = [
     "TorrentSearchScope",
     "TransferHashInfo",
     "TransferInfo",
+    "Video",
+    "VideoType",
+    "VideosResponse",
     "WishlistAddRequest",
     "WishlistItem",
     "WishlistResponse",
+    "YOUTUBE_EMBED_BASE_URL",
     "poster_url",
     "still_url",
+    "youtube_embed_url",
 ]
