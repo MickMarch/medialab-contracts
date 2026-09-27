@@ -10,6 +10,16 @@ from medialab_contracts.constants import (
 from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
 from medialab_contracts.search import TorrentSearchScope
+from medialab_contracts.settings import (
+    SettingSource,
+    SettingSpec,
+    SettingsResponse,
+    SettingType,
+    SettingUpdate,
+    SettingValue,
+    SettingView,
+    SuiteSettingsResponse,
+)
 from medialab_contracts.transfers import TransferHashInfo, TransferInfo
 
 __all__ = [
@@ -21,6 +31,14 @@ __all__ = [
     "CommonErrorCode",
     "ErrorResponse",
     "MediaType",
+    "SettingSource",
+    "SettingSpec",
+    "SettingType",
+    "SettingUpdate",
+    "SettingValue",
+    "SettingView",
+    "SettingsResponse",
+    "SuiteSettingsResponse",
     "TorrentSearchScope",
     "TransferHashInfo",
     "TransferInfo",
