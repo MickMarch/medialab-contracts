@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-09-27
+
 ### Added
 
 - `JobProgress` and `ETA_UNKNOWN_SECONDS` for live download progress on jobs.
