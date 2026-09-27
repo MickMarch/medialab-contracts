@@ -11,9 +11,6 @@ from medialab_contracts import (
     LibraryTmdbIdsResponse,
     MediaType,
     PosterSize,
-    WishlistAddRequest,
-    WishlistItem,
-    WishlistResponse,
     poster_url,
 )
 
@@ -36,7 +33,7 @@ class TestDiscoverItem:
     def test_flags_default_to_false(self) -> None:
         item = _item()
         assert item.media_type is MediaType.MOVIE
-        assert item.on_wishlist is False
+        assert item.on_watchlist is False
         assert item.in_library is False
 
     def test_year_and_poster_are_optional(self) -> None:
@@ -45,7 +42,7 @@ class TestDiscoverItem:
         assert item.poster_path is None
 
     def test_round_trips_through_json(self) -> None:
-        item = _item(media_type="show", on_wishlist=True, in_library=True)
+        item = _item(media_type="show", on_watchlist=True, in_library=True)
         assert DiscoverItem.model_validate_json(item.model_dump_json()) == item
 
 
@@ -65,30 +62,6 @@ class TestGenres:
         response = GenresResponse(genres=[Genre(id=878, name="Science Fiction")])
         assert response.genres[0].id == 878
         assert response.genres[0].name == "Science Fiction"
-
-
-class TestWishlist:
-    def test_item_round_trips_and_defaults_in_library(self) -> None:
-        item = WishlistItem(
-            tmdb_id=1399,
-            media_type=MediaType.SHOW,
-            title="Game of Thrones",
-            year="2011",
-            poster_path=None,
-            overview="",
-            added_at=datetime(2026, 9, 27, tzinfo=UTC),
-        )
-        assert item.in_library is False
-        response = WishlistResponse(items=[item])
-        assert WishlistResponse.model_validate_json(response.model_dump_json()) == response
-
-
-class TestWishlistAddRequest:
-    def test_only_title_is_required(self) -> None:
-        body = WishlistAddRequest(title="Dune")
-        assert body.year is None
-        assert body.poster_path is None
-        assert body.overview == ""
 
 
 class TestLibraryTmdbIds:
