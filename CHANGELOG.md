@@ -7,6 +7,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Watchlist models: `WatchlistKind`, `FollowStartMode`, `FollowStart`,
+  `FollowRequest`, `FollowState`, `SubmissionState`, `WatchlistItem`,
+  `WatchlistAddRequest`, `WatchlistResponse`, `DEFAULT_FOLLOW_RESOLUTION`.
+- `watchlist_kind` on `DiscoverItem` and `ShowBrowseResponse`; `submitted` and
+  `wanted` on `EpisodeState`.
+
+### Removed
+
+- `WishlistItem`, `WishlistAddRequest`, `WishlistResponse` (breaking): use the
+  watchlist models.
+
+### Changed
+
+- `on_wishlist` is renamed `on_watchlist` on `DiscoverItem` and
+  `ShowBrowseResponse` (breaking).
+
 ## [0.12.0] - 2026-09-27
 
 ### Added

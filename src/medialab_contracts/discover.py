@@ -1,6 +1,5 @@
-"""Discover (trending and by-genre) titles owned by torrent-downloader, the
-wishlist owned by the orchestrator, and the library TMDB ids owned by
-medialab-jellyfin."""
+"""Discover (trending and by-genre) titles owned by torrent-downloader, and
+the library TMDB ids owned by medialab-jellyfin."""
 
 from datetime import datetime
 from enum import Enum
@@ -8,6 +7,7 @@ from enum import Enum
 from pydantic import BaseModel
 
 from medialab_contracts.media import MediaType
+from medialab_contracts.watchlist import WatchlistKind
 
 TMDB_IMAGE_BASE_URL = "https://image.tmdb.org/t/p"
 
@@ -34,7 +34,8 @@ class DiscoverItem(BaseModel):
     overview: str = ""
     vote_average: float = 0.0
     poster_path: str | None = None
-    on_wishlist: bool = False
+    on_watchlist: bool = False
+    watchlist_kind: WatchlistKind | None = None
     in_library: bool = False
 
 
@@ -52,30 +53,6 @@ class Genre(BaseModel):
 
 class GenresResponse(BaseModel):
     genres: list[Genre]
-
-
-class WishlistAddRequest(BaseModel):
-    """Body of ``PUT /wishlist/{media_type}/{tmdb_id}``; stored so listing never calls TMDB."""
-
-    title: str
-    year: str | None = None
-    poster_path: str | None = None
-    overview: str = ""
-
-
-class WishlistItem(BaseModel):
-    tmdb_id: int
-    media_type: MediaType
-    title: str
-    year: str | None = None
-    poster_path: str | None = None
-    overview: str = ""
-    added_at: datetime
-    in_library: bool = False
-
-
-class WishlistResponse(BaseModel):
-    items: list[WishlistItem]
 
 
 class LibraryTmdbIdsResponse(BaseModel):

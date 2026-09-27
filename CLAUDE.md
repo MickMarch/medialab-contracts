@@ -46,7 +46,8 @@ src/medialab_contracts/
 ├── errors.py     ErrorResponse, CommonErrorCode
 ├── search.py     TorrentSearchScope
 ├── constants.py  API_PREFIX, API_KEY_HEADER, HEALTH_PATH, MEDIA_TYPE_SUBDIRS
-└── transfers.py  TransferInfo, TransferHashInfo
+├── transfers.py  TransferInfo, TransferHashInfo
+└── watchlist.py  WatchlistKind, FollowStart, WatchlistItem, WatchlistAddRequest, FollowRequest
 ```
 
 ## Consumption

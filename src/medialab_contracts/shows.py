@@ -7,6 +7,7 @@ from datetime import date
 from pydantic import BaseModel
 
 from medialab_contracts.discover import TMDB_IMAGE_BASE_URL
+from medialab_contracts.watchlist import SubmissionState, WatchlistKind
 
 STILL_SIZE = "w300"
 """TMDB image width for episode stills."""
@@ -64,6 +65,10 @@ class EpisodeState(Episode):
     aired: bool = False
     in_library: bool = False
     queued_job_id: str | None = None
+    submitted: SubmissionState | None = None
+    """What a follow did with this episode, if anything."""
+    wanted: bool = False
+    """A follow will fetch it on its next tick."""
 
 
 class ShowBrowseResponse(BaseModel):
@@ -76,5 +81,6 @@ class ShowBrowseResponse(BaseModel):
     seasons: list[Season]
     episodes: list[EpisodeState]
     next_episode: Episode | None = None
-    on_wishlist: bool = False
+    on_watchlist: bool = False
+    watchlist_kind: WatchlistKind | None = None
     in_library: bool = False
