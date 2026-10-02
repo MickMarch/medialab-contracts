@@ -4,7 +4,7 @@ followed shows whose new episodes are downloaded automatically."""
 from datetime import datetime
 from enum import Enum
 
-from pydantic import BaseModel, model_validator
+from pydantic import BaseModel, field_validator, model_validator
 
 from medialab_contracts.media import MediaType
 
@@ -86,3 +86,42 @@ class WatchlistResponse(BaseModel):
 class SubmissionState(str, Enum):
     SUBMITTED = "submitted"
     IGNORED = "ignored"
+
+
+class SeasonFollowMode(str, Enum):
+    """How the follow poll treats one season of a followed show. See
+    ``docs/specs/follow-season-packs.md``."""
+
+    PACK = "pack"
+    """Search the season pack with the standard pack profile."""
+    PACK_NOT_FOUND = "pack_not_found"
+    """The pack search found nothing; the season waits for the user's decision."""
+    PACK_RETRY_TIMEOUT = "pack_retry_timeout"
+    """One more pack attempt with the long search timeout."""
+    PACK_RETRY_SEEDERS = "pack_retry_seeders"
+    """One more pack attempt with the low seeder floor."""
+    EPISODES = "episodes"
+    """Episode by episode, as for a season still airing."""
+
+
+class SeasonFollowState(BaseModel):
+    season: int
+    mode: SeasonFollowMode
+    attempts: int = 0
+    """Pack searches tried so far."""
+    last_tried_at: datetime | None = None
+    job_id: str | None = None
+    """The pack job once one was submitted."""
+
+
+class SeasonDecisionRequest(BaseModel):
+    """Body of ``POST /watchlist/show/{tmdb_id}/seasons/{season}/decision``."""
+
+    mode: SeasonFollowMode
+
+    @field_validator("mode")
+    @classmethod
+    def _choosable(cls, mode: SeasonFollowMode) -> SeasonFollowMode:
+        if mode is SeasonFollowMode.PACK_NOT_FOUND:
+            raise ValueError("pack_not_found is set by the poll, not chosen.")
+        return mode

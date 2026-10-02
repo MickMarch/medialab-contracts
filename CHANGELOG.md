@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `SeasonFollowMode`, `SeasonFollowState` and `SeasonDecisionRequest`: the
+  per-season state of a followed show and the user's choice when a season
+  pack is not found (MickMarch/medialab#104).
+
 ## [1.0.0] - 2026-09-27
 
 ### Added

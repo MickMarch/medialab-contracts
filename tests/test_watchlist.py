@@ -13,6 +13,9 @@ from medialab_contracts import (
     FollowStartMode,
     FollowState,
     MediaType,
+    SeasonDecisionRequest,
+    SeasonFollowMode,
+    SeasonFollowState,
     SubmissionState,
     WatchlistAddRequest,
     WatchlistItem,
@@ -83,3 +86,32 @@ class TestFlagsOnOtherModels:
     def test_submission_state_wire_values(self) -> None:
         assert SubmissionState.SUBMITTED.value == "submitted"
         assert SubmissionState.IGNORED.value == "ignored"
+
+
+class TestSeasonFollow:
+    def test_modes_are_stable_wire_values(self) -> None:
+        assert [m.value for m in SeasonFollowMode] == [
+            "pack",
+            "pack_not_found",
+            "pack_retry_timeout",
+            "pack_retry_seeders",
+            "episodes",
+        ]
+
+    def test_state_round_trips(self) -> None:
+        state = SeasonFollowState(season=3, mode="pack_not_found", attempts=2, last_tried_at=NOW)
+        again = SeasonFollowState.model_validate_json(state.model_dump_json())
+        assert again == state and again.job_id is None
+
+    def test_decision_accepts_every_mode_a_user_may_choose(self) -> None:
+        for mode in (
+            SeasonFollowMode.PACK,
+            SeasonFollowMode.PACK_RETRY_TIMEOUT,
+            SeasonFollowMode.PACK_RETRY_SEEDERS,
+            SeasonFollowMode.EPISODES,
+        ):
+            assert SeasonDecisionRequest(mode=mode).mode is mode
+
+    def test_decision_rejects_not_found(self) -> None:
+        with pytest.raises(ValidationError):
+            SeasonDecisionRequest(mode=SeasonFollowMode.PACK_NOT_FOUND)
