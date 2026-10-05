@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `TorrentSearchProgress` and `SearchProgressState`: the state of a torrent
+  search in flight (patterns done out of total, results so far, elapsed and
+  timeout), with `fraction` blending finished patterns and elapsed time.
+
 ## [1.1.0] - 2026-10-02
 
 ### Added
