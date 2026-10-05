@@ -21,6 +21,7 @@ from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
 from medialab_contracts.progress import ETA_UNKNOWN_SECONDS, JobProgress
 from medialab_contracts.search import TorrentSearchScope
+from medialab_contracts.search_progress import SearchProgressState, TorrentSearchProgress
 from medialab_contracts.settings import (
     SettingSource,
     SettingSpec,
@@ -109,6 +110,8 @@ __all__ = [
     "SubmissionState",
     "SuiteSettingsResponse",
     "TMDB_IMAGE_BASE_URL",
+    "SearchProgressState",
+    "TorrentSearchProgress",
     "TorrentSearchScope",
     "TransferHashInfo",
     "TransferInfo",
