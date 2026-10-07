@@ -27,6 +27,9 @@ workspace DRY rule: never abstract across domains just to dedupe):
   required `int`.
 - `TorrentSearchScope`: whole title / season / episode targeting for a torrent
   search; validates the movie/season/episode combinations.
+- `CredentialState`, `CredentialStatus`, `CREDENTIAL_*` names: the per-credential
+  health a worker reports on its health response; names equal the setup
+  tool's answer fields.
 - Wire constants (`constants.py`): `API_PREFIX`, `API_KEY_HEADER`,
   `HEALTH_PATH`, `MEDIA_TYPE_SUBDIRS`, `STAGING_SUBDIR`. A route prefix or directory name that
   two services must agree on is declared here, not in each.

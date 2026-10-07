@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Credential health models: `CredentialStatus`, `CredentialState` and the
+  credential name constants (`CREDENTIAL_TMDB_API_KEY`, `CREDENTIAL_QB_API_KEY`,
+  `CREDENTIAL_JELLYFIN_API_KEY`, `CREDENTIAL_DISCORD_TOKEN`, `CREDENTIAL_NAMES`),
+  the per-credential state a worker reports on its health response
+  (MickMarch/medialab#136).
+
 ## [1.2.0] - 2026-10-05
 
 ### Added
