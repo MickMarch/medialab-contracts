@@ -18,6 +18,9 @@ from medialab_contracts import (
     TransferInfo,  # per-torrent runtime snapshot
     TransferHashInfo,  # cached media_type + host_path + tmdb_id for a hash
     TorrentSearchScope,  # media_type + optional season / episode for torrent search
+    CredentialState,
+    CredentialStatus,
+    CREDENTIAL_NAMES,  # per-credential health on /health
     SettingSpec,  # a service's declared tunable: key, type, bounds, when it applies
     SettingView,  # a setting as clients see it: spec + effective value + source
     SettingsResponse,  # a service's GET /settings

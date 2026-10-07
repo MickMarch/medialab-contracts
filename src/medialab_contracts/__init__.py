@@ -7,6 +7,15 @@ from medialab_contracts.constants import (
     MEDIA_TYPE_SUBDIRS,
     STAGING_SUBDIR,
 )
+from medialab_contracts.credentials import (
+    CREDENTIAL_DISCORD_TOKEN,
+    CREDENTIAL_JELLYFIN_API_KEY,
+    CREDENTIAL_NAMES,
+    CREDENTIAL_QB_API_KEY,
+    CREDENTIAL_TMDB_API_KEY,
+    CredentialState,
+    CredentialStatus,
+)
 from medialab_contracts.discover import (
     TMDB_IMAGE_BASE_URL,
     DiscoverItem,
@@ -68,6 +77,13 @@ from medialab_contracts.watchlist import (
 )
 
 __all__ = [
+    "CREDENTIAL_DISCORD_TOKEN",
+    "CREDENTIAL_JELLYFIN_API_KEY",
+    "CREDENTIAL_NAMES",
+    "CREDENTIAL_QB_API_KEY",
+    "CREDENTIAL_TMDB_API_KEY",
+    "CredentialState",
+    "CredentialStatus",
     "API_KEY_HEADER",
     "API_PREFIX",
     "CommonErrorCode",
