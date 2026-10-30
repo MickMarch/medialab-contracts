@@ -30,6 +30,11 @@ from medialab_contracts import (
     HEALTH_PATH,  # the one unauthenticated endpoint
     MEDIA_TYPE_SUBDIRS,  # media-root subdirectory per MediaType
     STAGING_SUBDIR,  # "_incoming": downloads land here before placement
+    PlaceholderState,  # Discover placeholder request state
+    placeholder_title,  # title with the state suffix every Jellyfin client shows
+    JellyfinRequestEvent,  # favorite toggled on a placeholder
+    DISCOVER_LIBRARY_NAMES,  # Jellyfin library name per MediaType
+    DISCOVER_CLIP_SUBDIR,  # "_clip": source clip beside the Discover library roots
 )
 ```
 

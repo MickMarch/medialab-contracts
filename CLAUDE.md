@@ -50,6 +50,8 @@ src/medialab_contracts/
 ├── search.py     TorrentSearchScope
 ├── constants.py  API_PREFIX, API_KEY_HEADER, HEALTH_PATH, MEDIA_TYPE_SUBDIRS
 ├── transfers.py  TransferInfo, TransferHashInfo
+├── placeholders.py  PlaceholderState, placeholder_title, JellyfinRequestEvent,
+│                    DISCOVER_* layout constants
 └── watchlist.py  WatchlistKind, FollowStart, WatchlistItem, WatchlistAddRequest, FollowRequest,
                   SeasonFollowMode, SeasonFollowState, SeasonDecisionRequest
 ```
