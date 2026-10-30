@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Discover placeholder contracts for requesting titles from inside Jellyfin
+  clients (MickMarch/medialab#142): `PlaceholderState`,
+  `PLACEHOLDER_TITLE_SUFFIXES` and `placeholder_title`, the
+  `JellyfinRequestEvent` favorite event (coerces Webhook plugin string values
+  and Jellyfin `Movie` / `Series` item types), and the Discover layout
+  constants `DISCOVER_LIBRARY_NAMES`, `DISCOVER_CLIP_SUBDIR`,
+  `DISCOVER_CLIP_FILENAME`, `JELLYFIN_ITEM_TYPES`.
+
 ## [1.3.0] - 2026-10-07
 
 ### Added

@@ -28,6 +28,17 @@ from medialab_contracts.discover import (
 )
 from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
+from medialab_contracts.placeholders import (
+    DISCOVER_CLIP_FILENAME,
+    DISCOVER_CLIP_SUBDIR,
+    DISCOVER_LIBRARY_NAMES,
+    JELLYFIN_ITEM_TYPES,
+    PLACEHOLDER_TITLE_SEPARATOR,
+    PLACEHOLDER_TITLE_SUFFIXES,
+    JellyfinRequestEvent,
+    PlaceholderState,
+    placeholder_title,
+)
 from medialab_contracts.progress import ETA_UNKNOWN_SECONDS, JobProgress
 from medialab_contracts.search import TorrentSearchScope
 from medialab_contracts.search_progress import SearchProgressState, TorrentSearchProgress
@@ -88,6 +99,9 @@ __all__ = [
     "API_PREFIX",
     "CommonErrorCode",
     "DEFAULT_FOLLOW_RESOLUTION",
+    "DISCOVER_CLIP_FILENAME",
+    "DISCOVER_CLIP_SUBDIR",
+    "DISCOVER_LIBRARY_NAMES",
     "DiscoverItem",
     "DiscoverResponse",
     "ETA_UNKNOWN_SECONDS",
@@ -102,11 +116,16 @@ __all__ = [
     "Genre",
     "GenresResponse",
     "HEALTH_PATH",
+    "JELLYFIN_ITEM_TYPES",
+    "JellyfinRequestEvent",
     "JobProgress",
     "LibraryEpisodesResponse",
     "LibraryTmdbIdsResponse",
     "MEDIA_TYPE_SUBDIRS",
     "MediaType",
+    "PLACEHOLDER_TITLE_SEPARATOR",
+    "PLACEHOLDER_TITLE_SUFFIXES",
+    "PlaceholderState",
     "PosterSize",
     "STAGING_SUBDIR",
     "STILL_SIZE",
@@ -139,6 +158,7 @@ __all__ = [
     "WatchlistKind",
     "WatchlistResponse",
     "YOUTUBE_EMBED_BASE_URL",
+    "placeholder_title",
     "poster_url",
     "still_url",
     "youtube_embed_url",
