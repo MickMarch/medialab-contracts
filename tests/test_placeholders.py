@@ -10,9 +10,13 @@ from medialab_contracts import (
     MEDIA_TYPE_SUBDIRS,
     PLACEHOLDER_TITLE_SEPARATOR,
     PLACEHOLDER_TITLE_SUFFIXES,
+    FavoriteScope,
     JellyfinRequestEvent,
     MediaType,
+    PlaceholderInfo,
+    PlaceholdersResponse,
     PlaceholderState,
+    PlaceholderWrite,
     placeholder_title,
 )
 
@@ -107,3 +111,23 @@ class TestJellyfinRequestEvent:
         dumped = event.model_dump(mode="json", by_alias=True)
         assert dumped["item_type"] == "movie"
         assert JellyfinRequestEvent.model_validate(dumped) == event
+
+
+class TestPlaceholderWire:
+    def test_write_defaults_to_available_with_no_year(self) -> None:
+        body = PlaceholderWrite(title="Heat")
+        assert (body.year, body.state) == (None, PlaceholderState.AVAILABLE)
+
+    def test_write_rejects_a_blank_title(self) -> None:
+        with pytest.raises(ValidationError):
+            PlaceholderWrite(title="  ")
+
+    def test_response_round_trips(self) -> None:
+        response = PlaceholdersResponse(
+            media_type=MediaType.MOVIE,
+            placeholders=[PlaceholderInfo(tmdb_id=TMDB_ID, title="x", state="requested")],
+        )
+        assert PlaceholdersResponse.model_validate(response.model_dump(mode="json")) == response
+
+    def test_favorite_scope_wire_values(self) -> None:
+        assert {scope.value for scope in FavoriteScope} == {"discover", "library"}

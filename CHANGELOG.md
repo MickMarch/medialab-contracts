@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- `PlaceholderWrite`, `PlaceholderInfo`, `PlaceholdersResponse` and
+  `FavoriteScope`: the medialab-jellyfin Discover endpoint shapes, moved here
+  now that the orchestrator calls them (MickMarch/medialab#142).
+
 ## [1.4.0] - 2026-10-30
 
 ### Added
