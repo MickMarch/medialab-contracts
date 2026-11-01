@@ -76,3 +76,40 @@ class JellyfinRequestEvent(BaseModel):
     @classmethod
     def _map_jellyfin_item_type(cls, value: Any) -> Any:
         return JELLYFIN_ITEM_TYPES.get(value, value)
+
+
+class FavoriteScope(str, Enum):
+    """Which favorites ``GET /discover/favorites`` on medialab-jellyfin returns."""
+
+    DISCOVER = "discover"
+    """Favorites on placeholders: requests."""
+    LIBRARY = "library"
+    """Favorites on real library items: recommendation seeds."""
+
+
+class PlaceholderWrite(BaseModel):
+    """Body of ``PUT /discover/placeholders/{media_type}/{tmdb_id}``."""
+
+    title: str
+    year: int | None = None
+    state: PlaceholderState = PlaceholderState.AVAILABLE
+
+    @field_validator("title")
+    @classmethod
+    def _title_must_not_be_blank(cls, value: str) -> str:
+        if not value.strip():
+            raise ValueError("title must not be blank")
+        return value
+
+
+class PlaceholderInfo(BaseModel):
+    tmdb_id: int
+    title: str
+    state: PlaceholderState
+
+
+class PlaceholdersResponse(BaseModel):
+    """Body of ``GET /discover/placeholders``."""
+
+    media_type: MediaType
+    placeholders: list[PlaceholderInfo]
