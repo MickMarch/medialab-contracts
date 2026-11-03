@@ -77,6 +77,7 @@ from medialab_contracts.videos import (
 )
 from medialab_contracts.watchlist import (
     DEFAULT_FOLLOW_RESOLUTION,
+    PICK_RESOLUTIONS,
     FollowRequest,
     FollowStart,
     FollowStartMode,
@@ -128,6 +129,7 @@ __all__ = [
     "LibraryTmdbIdsResponse",
     "MEDIA_TYPE_SUBDIRS",
     "MediaType",
+    "PICK_RESOLUTIONS",
     "PLACEHOLDER_TITLE_SEPARATOR",
     "PLACEHOLDER_TITLE_SUFFIXES",
     "PlaceholderInfo",
