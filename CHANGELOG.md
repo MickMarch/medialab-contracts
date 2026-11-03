@@ -7,6 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- A CHOICE setting returns the declared spelling of the matched choice, so
+  a choice with capitals (`4K`) can be set (MickMarch/medialab#153).
+
 ## [1.6.0] - 2026-11-03
 
 ### Added
