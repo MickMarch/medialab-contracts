@@ -7,6 +7,7 @@ from pydantic import ValidationError
 
 from medialab_contracts import (
     DEFAULT_FOLLOW_RESOLUTION,
+    PICK_RESOLUTIONS,
     DiscoverItem,
     FollowRequest,
     FollowStart,
@@ -115,3 +116,11 @@ class TestSeasonFollow:
     def test_decision_rejects_not_found(self) -> None:
         with pytest.raises(ValidationError):
             SeasonDecisionRequest(mode=SeasonFollowMode.PACK_NOT_FOUND)
+
+
+class TestPickResolutions:
+    def test_best_first(self):
+        assert PICK_RESOLUTIONS == ("4K", "1080p", "720p")
+
+    def test_contains_the_follow_default(self):
+        assert DEFAULT_FOLLOW_RESOLUTION in PICK_RESOLUTIONS

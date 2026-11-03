@@ -9,6 +9,8 @@ from pydantic import BaseModel, field_validator, model_validator
 from medialab_contracts.media import MediaType
 
 DEFAULT_FOLLOW_RESOLUTION = "1080p"
+PICK_RESOLUTIONS: tuple[str, ...] = ("4K", DEFAULT_FOLLOW_RESOLUTION, "720p")
+"""Resolutions an automatic pick can target, best first."""
 
 
 class WatchlistKind(str, Enum):
