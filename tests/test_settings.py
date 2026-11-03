@@ -50,6 +50,18 @@ class TestSettingSpec:
         with pytest.raises(ValueError, match="one of"):
             spec.coerce("maybe")
 
+    def test_choice_keeps_the_declared_spelling(self) -> None:
+        spec = SettingSpec(
+            key="jellyfin_request_resolution",
+            type=SettingType.CHOICE,
+            description="d",
+            applies="next request poll tick",
+            choices=["4K", "1080p", "720p"],
+        )
+        assert spec.coerce("4k") == "4K"
+        assert spec.coerce("4K") == "4K"
+        assert spec.coerce("1080P") == "1080p"
+
     def test_str_strips_and_rejects_empty(self) -> None:
         spec = SettingSpec(
             key="target_language", type=SettingType.STR, description="d", applies="next search"

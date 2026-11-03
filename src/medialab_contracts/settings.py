@@ -62,10 +62,11 @@ class SettingSpec(BaseModel):
         if not text:
             raise ValueError(f"{self.key} must not be empty.")
         if self.type is SettingType.CHOICE:
-            lowered = text.lower()
-            if lowered not in (self.choices or []):
+            by_folded = {choice.casefold(): choice for choice in self.choices or []}
+            matched = by_folded.get(text.casefold())
+            if matched is None:
                 raise ValueError(f"{self.key} must be one of: {', '.join(self.choices or [])}.")
-            return lowered
+            return matched
         return text
 
 
