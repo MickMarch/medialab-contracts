@@ -28,6 +28,13 @@ from medialab_contracts.discover import (
 )
 from medialab_contracts.errors import CommonErrorCode, ErrorResponse
 from medialab_contracts.media import MediaType
+from medialab_contracts.numbering import (
+    EpisodeGroupInfo,
+    EpisodeGroupsResponse,
+    EpisodeNumber,
+    NumberingMode,
+    ShowNumbering,
+)
 from medialab_contracts.placeholders import (
     DISCOVER_CLIP_FILENAME,
     DISCOVER_CLIP_SUBDIR,
@@ -78,6 +85,7 @@ from medialab_contracts.videos import (
 from medialab_contracts.watchlist import (
     DEFAULT_FOLLOW_RESOLUTION,
     PICK_RESOLUTIONS,
+    FollowOptions,
     FollowRequest,
     FollowStart,
     FollowStartMode,
@@ -111,10 +119,14 @@ __all__ = [
     "DiscoverResponse",
     "ETA_UNKNOWN_SECONDS",
     "Episode",
+    "EpisodeGroupInfo",
+    "EpisodeGroupsResponse",
+    "EpisodeNumber",
     "EpisodeKey",
     "EpisodeState",
     "ErrorResponse",
     "FavoriteScope",
+    "FollowOptions",
     "FollowRequest",
     "FollowStart",
     "FollowStartMode",
@@ -129,6 +141,7 @@ __all__ = [
     "LibraryTmdbIdsResponse",
     "MEDIA_TYPE_SUBDIRS",
     "MediaType",
+    "NumberingMode",
     "PICK_RESOLUTIONS",
     "PLACEHOLDER_TITLE_SEPARATOR",
     "PLACEHOLDER_TITLE_SUFFIXES",
@@ -152,6 +165,7 @@ __all__ = [
     "SettingView",
     "SettingsResponse",
     "ShowBrowseResponse",
+    "ShowNumbering",
     "SubmissionState",
     "SuiteSettingsResponse",
     "TMDB_IMAGE_BASE_URL",

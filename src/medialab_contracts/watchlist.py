@@ -7,6 +7,7 @@ from enum import Enum
 from pydantic import BaseModel, field_validator, model_validator
 
 from medialab_contracts.media import MediaType
+from medialab_contracts.numbering import NumberingMode
 
 DEFAULT_FOLLOW_RESOLUTION = "1080p"
 PICK_RESOLUTIONS: tuple[str, ...] = ("4K", DEFAULT_FOLLOW_RESOLUTION, "720p")
@@ -42,16 +43,32 @@ class FollowStart(BaseModel):
         return self
 
 
-class FollowRequest(BaseModel):
+class FollowOptions(BaseModel):
+    """What a follow picks: resolution, episode numbering and audio preference."""
+
+    start: FollowStart
+    resolution: str = DEFAULT_FOLLOW_RESOLUTION
+    numbering: NumberingMode = NumberingMode.AUTO
+    episode_group_id: str | None = None
+    """The TMDB episode group; set exactly when ``numbering`` is ``group``."""
+    prefer_multi_audio: bool = False
+    """Rank dual or multi audio releases first; a preference, never a filter."""
+
+    @model_validator(mode="after")
+    def _validate_group(self) -> "FollowOptions":
+        if self.numbering is NumberingMode.GROUP:
+            if not self.episode_group_id:
+                raise ValueError("A 'group' numbering needs episode_group_id.")
+        elif self.episode_group_id is not None:
+            raise ValueError(f"A '{self.numbering.value}' numbering must not set a group.")
+        return self
+
+
+class FollowRequest(FollowOptions):
     """Body of ``PUT /watchlist/show/{tmdb_id}/follow``."""
 
-    start: FollowStart
-    resolution: str = DEFAULT_FOLLOW_RESOLUTION
 
-
-class FollowState(BaseModel):
-    start: FollowStart
-    resolution: str = DEFAULT_FOLLOW_RESOLUTION
+class FollowState(FollowOptions):
     paused: bool = False
     followed_at: datetime
     last_checked_at: datetime | None = None
