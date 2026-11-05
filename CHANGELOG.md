@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- Episode numbering: `NumberingMode`, `EpisodeNumber`, `ShowNumbering` (the
+  map from TMDB default numbering to release-season and absolute numbers),
+  `EpisodeGroupInfo` and `EpisodeGroupsResponse` (MickMarch/medialab#162).
+- `FollowOptions`, shared by `FollowRequest` and `FollowState`: `numbering`,
+  `episode_group_id` (required exactly for `group`) and `prefer_multi_audio`.
+- `EpisodeState.release_season` and `release_episode`.
+
 ## [1.6.1] - 2026-11-03
 
 ### Fixed

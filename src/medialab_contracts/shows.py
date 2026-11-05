@@ -69,6 +69,9 @@ class EpisodeState(Episode):
     """What a follow did with this episode, if anything."""
     wanted: bool = False
     """A follow will fetch it on its next tick."""
+    release_season: int | None = None
+    release_episode: int | None = None
+    """Release-style numbering when the show's numbering maps it elsewhere."""
 
 
 class ShowBrowseResponse(BaseModel):
