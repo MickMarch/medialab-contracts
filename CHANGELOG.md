@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Removed
+
+- Breaking: the Discover placeholder module (`placeholders.py`):
+  `PlaceholderState`, `placeholder_title`, `JellyfinRequestEvent`,
+  `FavoriteScope`, `PlaceholderWrite`, `PlaceholderInfo`,
+  `PlaceholdersResponse`, `DISCOVER_LIBRARY_NAMES`, the clip and title
+  constants and `JELLYFIN_ITEM_TYPES`. The Jellyfin Discover libraries are
+  gone (MickMarch/medialab#168).
+
 ## [1.7.0] - 2026-11-05
 
 ### Added
