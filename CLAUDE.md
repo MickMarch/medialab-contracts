@@ -52,8 +52,6 @@ src/medialab_contracts/
 ├── transfers.py  TransferInfo, TransferHashInfo
 ├── numbering.py  NumberingMode, EpisodeNumber, ShowNumbering (TMDB -> release-season and
 │                 absolute numbers), EpisodeGroupInfo, EpisodeGroupsResponse
-├── placeholders.py  PlaceholderState, placeholder_title, JellyfinRequestEvent,
-│                    DISCOVER_* layout constants
 └── watchlist.py  WatchlistKind, FollowStart, WatchlistItem, WatchlistAddRequest, FollowOptions, FollowRequest,
                   SeasonFollowMode, SeasonFollowState, SeasonDecisionRequest
 ```
